@@ -56,6 +56,15 @@ pulls the data and does three way merge
 
 now the file contains two check points in the file:
 1.<<<<<< HEAD(shows changes in remote)
-2.>>>>>>(commit message of loca)(shows changes in local)
+2.>>>>>>(commit message of local)(shows changes in local)
+
+delete those lines and save the file then after adding commit it 
+
+After the force push it by doing :
+
+$ git push -f origin master
 
 
+now the whole data is on the remote (Modified on remote and local)
+
+And no auto generated commit for syncing the data. 
