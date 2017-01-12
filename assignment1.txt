@@ -1,0 +1,61 @@
+The data on remote is now cloned to Anuj and Jatin. It is a file named 'Assignment1.txt' 
+
+Currently the data in the file is:
+
+data1 by anuj
+data1 by jatin
+data2 by anuj
+
+now jatin modifies the data and adds two more lines to the file Assignment.txt
+and the data is pushed to the remote git
+
+Now the data on the remote is:
+
+data1 by anuj
+data1 by jatin
+data2 by anuj
+data2 modified by jatin
+data3 modified by jatin
+
+Now consider the local git of anuj. It has the old data i.e. only 3 lines of files
+
+Data on the local anuj :
+
+data1 by anuj
+data1 by jatin
+data2 by anuj
+
+
+Now anuj adds one more line to the file and commits the data
+
+Data on the local anuj :
+
+data1 by anuj
+data1 by jatin
+data2 by anuj
+data3 by anuj
+
+Anuj tries to push the data to the remote git:
+Failed(Hint: Remote contains some changes that local does not contain)
+
+Now anuj needs to pull the data from server to add those new lines to his file.
+
+Here remote and local git of anuj goes into two different directions.
+Hence Anuj need to do the three way merge to push his data and get new data from remote
+Three way merge merges the different data and the sequence becomes linear.
+
+Three way merge is done by rebasing to eliminate the extra commit. 
+Rebase doesnt give the extra commit in the log hence the path is now linear.
+Rebase arranges the path that puts new data from remote before new data from local git
+
+
+Now the steps are: 
+
+$ git pull --rebase
+pulls the data and does three way merge
+
+now the file contains two check points in the file:
+1.<<<<<< HEAD(shows changes in remote)
+2.>>>>>>(commit message of loca)(shows changes in local)
+
+
